@@ -25,9 +25,18 @@ public class MemberRepository {
                 .getResultList();
     }
 
-    public Member findByLoginId(String loginId) {
-        return em.createQuery("select m from Member m where m.loginId = :loginId", Member.class)
-                .setParameter("loginId", loginId)
+    public Member findByLoginId(String logInId) {
+        return em.createQuery("select m from Member m where m.logInId = :logInId", Member.class)
+                .setParameter("logInId", logInId)
+                .getSingleResult();
+    }
+
+    public Member findByLogIdAndPassword(String logInId, String password) {
+        return em.createQuery("select m from Member m " +
+                "where m.logInId = :logInId " +
+                "and m.password = :password", Member.class)
+                .setParameter("logInId", logInId)
+                .setParameter("password", password)
                 .getSingleResult();
     }
 
