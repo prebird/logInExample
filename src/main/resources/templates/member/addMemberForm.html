@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/header :: header">
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+</head>
+<body th:replace="fragment/bodyHeader :: bodyHeader">
+    <div>
+        <form role="form" action="/member/add" th:object="${memberDto}" method="post">
+            <div>
+                <label for="logInId">이름</label>
+                <input type="text" th:field="*{logInId}">
+            </div>
+        </form>
+        
+    </div>
+</body>
+</html>
